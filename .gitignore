@@ -2,6 +2,10 @@
 /data/*
 !/data/.gitkeep
 
+# Exclude RCON data
+/rcon-data/*
+!/rcon-data/.gitkeep
+
 # Exclude backup files
 /backups/*
 !/backups/.gitkeep
