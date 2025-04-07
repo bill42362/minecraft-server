@@ -7,7 +7,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - "./data:/data"
+      - data:/data
     environment:
       EULA: "TRUE"
       INIT_MEMORY: "1G"
@@ -23,4 +23,16 @@ services:
       - "4326:4326"
       - "4327:4327"
     volumes:
-      - "./rcon-data:/opt/rcon-web-admin/db"
+      - rcon-data:/opt/rcon-web-admin/db
+    # environment:
+    #   RWA_USERNAME: admin
+    #   RWA_PASSWORD: admin
+    #   RWA_ADMIN: "TRUE"
+    #   # is referring to the service name 'mc' declared below
+    #   RWA_RCON_HOST: mc
+    #   # needs to match the password configured for the container, see RCON_PASSWORD below
+    #   RWA_RCON_PASSWORD: "iambill42362really"
+
+volumes:
+  data:
+  rcon-data:
