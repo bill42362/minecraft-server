@@ -1,20 +1,22 @@
-# 排除 Minecraft 世界資料
+# Exclude Minecraft world data
 /data/*
 !/data/.gitkeep
 
-# 排除備份檔案
+# Exclude backup files
 /backups/*
 !/backups/.gitkeep
+**/*.backup*
+*/.backup*/
 
-# 排除 Docker cache
-**/__pycache__/
-*.pyc
+# Exclude Docker files
+.docker/
+docker-compose.override.yml
 
-# 忽略系統暫存
+# Ignore system temporary files
 .DS_Store
 Thumbs.db
 
-# 忽略編輯器/IDE 設定
+# Ignore editor/IDE settings
 .vscode/
 *.swp
 *.bak
