@@ -35,4 +35,14 @@ services:
 
 volumes:
   data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data
   rcon-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./rcon-data
