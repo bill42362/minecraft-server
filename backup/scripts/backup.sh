@@ -4,7 +4,7 @@ MCDATA="/mcdata"
 BACKUP_DIR="/backups"
 HASH_FILE="$BACKUP_DIR/last_world_hash.txt"
 
-INTERVAL_MINUTES=30
+INTERVAL_MINUTES=360
 
 mkdir -p "$BACKUP_DIR"
 
