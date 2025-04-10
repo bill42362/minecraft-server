@@ -10,6 +10,6 @@ RUN apk add --no-cache \
 COPY scripts/backup.sh /scripts/backup.sh
 RUN chmod +x /scripts/backup.sh
 
-# CMD ["/scripts/backup.sh"]
+CMD ["/scripts/backup.sh"]
 # Keep container running without executing backup script
-CMD ["tail", "-f", "/dev/null"]
+# CMD ["tail", "-f", "/dev/null"]
