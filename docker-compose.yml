@@ -7,7 +7,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - ${MINECRAFT_DATA_PATH:-data}:/data
+      - ${MINECRAFT_DATA_PATH:-./data}:/data
     environment:
       EULA: "TRUE"
       INIT_MEMORY: "1G"
@@ -23,7 +23,9 @@ services:
       - "4326:4326"
       - "4327:4327"
     volumes:
-      - ${RCON_DATA_PATH:-rcon-data}:/opt/rcon-web-admin/db
+      - ${RCON_DATA_PATH:-./rcon-data}:/opt/rcon-web-admin/db
+    depends_on:
+      - minecraft
     # environment:
     #   RWA_USERNAME: admin
     #   RWA_PASSWORD: admin
@@ -33,16 +35,21 @@ services:
     #   # needs to match the password configured for the container, see RCON_PASSWORD below
     #   RWA_RCON_PASSWORD: "iambill42362really"
 
+  backup:
+    build:
+      context: ./backup
+    container_name: "mc_backup"
+    volumes:
+      - ./data:/mcdata:ro
+      - ./backups:/backups
+    depends_on:
+      - minecraft
+    restart: unless-stopped
+
 volumes:
-  data:
+  backups:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ./data
-  rcon-data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./rcon-data
+      device: ./backups
