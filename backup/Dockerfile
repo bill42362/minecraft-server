@@ -1,9 +1,9 @@
-FROM alpine:latest
+FROM alpine:3.21
 
 RUN apk add --no-cache \
     bash \
     tar \
-    md5sum \
+    # md5sum \
     findutils \
     coreutils
 

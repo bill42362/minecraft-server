@@ -3,7 +3,7 @@ version: '3'
 services:
   minecraft:
     image: itzg/minecraft-server
-    container_name: "mc"
+    container_name: "mc-server"
     ports:
       - "25565:25565"
     volumes:
@@ -18,7 +18,7 @@ services:
     # restart: always
   rcon:
     image: itzg/rcon
-    container_name: "rcon"
+    container_name: "rcon-web-admin"
     ports:
       - "4326:4326"
       - "4327:4327"
@@ -38,7 +38,7 @@ services:
   backup:
     build:
       context: ./backup
-    container_name: "mc_backup"
+    container_name: "mc-backup"
     volumes:
       - ./data:/mcdata:ro
       - ./backups:/backups
