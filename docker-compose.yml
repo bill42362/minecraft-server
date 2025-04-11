@@ -38,7 +38,6 @@ services:
   backup:
     build:
       context: ./backup
-      dockerfile: Dockerfile
     container_name: "mc-backup"
     volumes:
       - ./data:/mcdata:ro
